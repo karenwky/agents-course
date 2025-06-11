@@ -34,6 +34,14 @@ The current President of France in Emmanuel Macron.
 
 </hfoption>
 <hfoption id="llama-index">
+<details>
+<summary>Install the DuckDuckGo Toolspec</summary>
+As introduced in the <a href="../../unit2/llama-index/tools">section on the LlamaHub</a>, we can install the DuckDuckGo toolspec with the following command:
+
+```python
+pip install llama-index-tools-duckduckgo
+```
+</details>
 
 ```python
 from llama_index.tools.duckduckgo import DuckDuckGoSearchToolSpec
@@ -41,8 +49,8 @@ from llama_index.core.tools import FunctionTool
 
 # Initialize the DuckDuckGo search tool
 tool_spec = DuckDuckGoSearchToolSpec()
-
 search_tool = FunctionTool.from_defaults(tool_spec.duckduckgo_full_search)
+
 # Example usage
 response = search_tool("Who's the current President of France?")
 print(response.raw_output[-1]['body'])
@@ -60,7 +68,10 @@ The President of the French Republic is the head of state of France. The current
 ```python
 from langchain_community.tools import DuckDuckGoSearchRun
 
+# Initialize the DuckDuckGo search tool
 search_tool = DuckDuckGoSearchRun()
+
+# Example usage
 results = search_tool.invoke("Who's the current President of France?")
 print(results)
 ```
